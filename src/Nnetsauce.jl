@@ -18,11 +18,9 @@ Conda.pip("install", "nnetsauce")  # Install nnetsauce
 Conda.add("numpy")
 Conda.add("scikit-learn")
 
-np = pyimport("numpy")
-ns = pyimport("nnetsauce")
-sklearn = pyimport("sklearn")
-
-export Ridge2Classifier, Ridge2MultitaskClassifier
+np = PyCall.pyimport("numpy")
+ns = PyCall.pyimport("nnetsauce")
+sklearn = PyCall.pyimport("sklearn")
 
     function Ridge2Classifier(kwargs...)
         return ns.Ridge2Classifier(kwargs)
@@ -31,5 +29,7 @@ export Ridge2Classifier, Ridge2MultitaskClassifier
     function Ridge2MultitaskClassifier(kwargs...)
         return ns.Ridge2MultitaskClassifier(kwargs)
     end
+
+    export Ridge2Classifier, Ridge2MultitaskClassifier
 
 end
