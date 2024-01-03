@@ -10,11 +10,12 @@ module Nnetsauce
 
     Conda.pip("install", "nnetsauce")  # Install nnetsauce        
 
-    function Ridge2Classifier(kwargs...)        
-        return PyCall.py"""        
-        import nnetsauce as ns
-        ns.Ridge2Classifier
-        """(kwargs)        
+    function Ridge2Classifier(kwargs...)  
+        # Printing key-value pair by 
+        # accessing each key one-by-one 
+        for i in keys(kwargs) 
+            println(i, " => ", kwargs[i]) 
+        end              
     end
         
     export Ridge2Classifier
