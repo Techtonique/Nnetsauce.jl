@@ -3,9 +3,7 @@ module Nnetsauce
 using Pkg
 
 Pkg.add("PyCall")
-Pkg.build("PyCall")
 Pkg.add("Conda")
-Pkg.build("Conda")
 
 using PyCall
 using Conda
