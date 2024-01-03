@@ -1,28 +1,26 @@
-import Pkg
-Pkg.add("Pkg")
+@testset "Ridge2Classifier" begin            
+    import Pkg
+    Pkg.add("Pkg")
 
-using Pkg
+    using Pkg
 
-Pkg.add("Conda")
-Pkg.build("Conda")
+    Pkg.add("Conda")
 
-using Test
-using Conda
+    using Test
+    using Conda
 
-Conda.add("pip")  # Ensure pip is installed
-Conda.pip_interop(true)  # Enable pip interop
-Conda.pip("install", "scikit-learn")  # Install scikit-learn
-Conda.add("numpy")
+    Conda.add("pip")  # Ensure pip is installed
+    Conda.pip_interop(true)  # Enable pip interop
+    Conda.pip("install", "scikit-learn")  # Install scikit-learn
+    Conda.add("numpy")
 
-using PyCall
+    using PyCall
 
-np = PyCall.pyimport("numpy")
-sklearn = PyCall.pyimport("sklearn")
+    np = PyCall.pyimport("numpy")
+    sklearn = PyCall.pyimport("sklearn")
 
-using Nnetsauce
+    using Nnetsauce
 
-@testset "Ridge2Classifier" begin        
-    #Write your tests here.
     dataset = sklearn.datasets.load_breast_cancer()
     X = dataset["data"]
     y = dataset["target"]
