@@ -15,8 +15,8 @@ module Nnetsauce
         import nnetsauce as ns
         """
         return PyCall.py"""        
-        ns.Ridge2Classifier
-        """(kwargs)        
+        ns.Ridge2Classifier($kwargs)
+        """       
     end
         
     function Ridge2MultitaskClassifier(kwargs...)        
@@ -24,8 +24,8 @@ module Nnetsauce
         import nnetsauce as ns
         """
         return PyCall.py"""        
-        ns.Ridge2MultitaskClassifier
-        """(kwargs)        
+        ns.Ridge2MultitaskClassifier($kwargs)
+        """
     end
 
     export Ridge2Classifier, Ridge2MultitaskClassifier    
