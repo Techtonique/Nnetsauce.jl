@@ -13,11 +13,11 @@ module Nnetsauce
     Conda.pip("install", "nnetsauce")  # Install nnetsauce
     ns = PyCall.pyimport("nnetsauce")
 
-    function Ridge2Classifier(kwargs...)
+    function Ridge2Classifier(; kwargs...)
         return ns.Ridge2Classifier(kwargs)
     end
 
-    function Ridge2MultitaskClassifier(kwargs...)
+    function Ridge2MultitaskClassifier(; kwargs...)
         return ns.Ridge2MultitaskClassifier(kwargs)        
     end
 
