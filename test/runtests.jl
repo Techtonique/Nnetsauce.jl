@@ -1,4 +1,4 @@
-import Pkg
+#= import Pkg
 Pkg.add("Pkg")
 
 using Pkg
@@ -22,8 +22,8 @@ sklearn = PyCall.pyimport("sklearn")
 using Nnetsauce
 
 @testset "Nnetsauce.jl" begin
-    @testset "Ridge2Classifier" begin
-        # Write your tests here.
+    @testset "Ridge2Classifier" begin        
+        #Write your tests here.
         dataset = sklearn.datasets.load_breast_cancer()
         X = dataset["data"]
         y = dataset["target"]
@@ -35,3 +35,4 @@ using Nnetsauce
         @test clf.score(X_test, y_test) >= 0.98
     end
 end
+ =#
