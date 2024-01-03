@@ -5,7 +5,7 @@ version = "0.1.0"
 
 [compat]
 julia = "1.6"
-Pkg >= "1.6.7"
+Pkg = "1.6.7"
 PyCall = "1.96.4" 
 Conda = "1.10.0"
 
