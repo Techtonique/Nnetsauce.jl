@@ -13,8 +13,8 @@ module Nnetsauce
     function Ridge2Classifier(kwargs...)        
         return PyCall.py"""        
         import nnetsauce as ns
-        return ns.Ridge2Classifier(**kwargs)
-        """        
+        ns.Ridge2Classifier
+        """(kwargs)        
     end
         
     export Ridge2Classifier
