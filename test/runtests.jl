@@ -1,3 +1,6 @@
+import Pkg
+Pkg.add("Pkg")
+
 using Pkg
 
 Pkg.add("Conda")
