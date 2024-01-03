@@ -8,8 +8,8 @@ module Nnetsauce
     import PyCall
     import Conda
 
-    #Conda.add("pip")  # Ensure pip is installed
-    #Conda.pip_interop(true)  # Enable pip interop
+    Conda.add("pip")  # Ensure pip is installed
+    Conda.pip_interop(true)  # Enable pip interop
     Conda.pip("install", "nnetsauce")  # Install nnetsauce
     
     PyCall.py"""
