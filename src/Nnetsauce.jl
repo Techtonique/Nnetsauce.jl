@@ -6,7 +6,6 @@ module Nnetsauce
 
     import PyCall
 
-    ENV["PYTHON"] = PyCall.pyprogramname()
     ns = PyCall.pyimport("nnetsauce")
 
         function Ridge2Classifier(kwargs...)
