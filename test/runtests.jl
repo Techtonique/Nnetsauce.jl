@@ -6,7 +6,6 @@ using Pkg
 Pkg.add("Conda")
 Pkg.build("Conda")
 
-using Nnetsauce
 using Test
 using Conda
 
