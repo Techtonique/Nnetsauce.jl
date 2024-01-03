@@ -11,15 +11,16 @@ module Nnetsauce
     #Conda.add("pip")  # Ensure pip is installed
     #Conda.pip_interop(true)  # Enable pip interop
     Conda.pip("install", "nnetsauce")  # Install nnetsauce
-    ns = PyCall.pyimport("nnetsauce")
+    
+    Ridge2Classifier = py"""
+    import nnetsauce as ns
+    ns.Ridge2Classifier
+    """
 
-    function Ridge2Classifier(; kwargs...)
-        return ns.Ridge2Classifier(kwargs)
-    end
-
-    function Ridge2MultitaskClassifier(; kwargs...)
-        return ns.Ridge2MultitaskClassifier(kwargs)        
-    end
+    Ridge2MultitaskClassifier = py"""
+    import nnetsauce as ns
+    ns.Ridge2MultitaskClassifier
+    """
 
     export Ridge2Classifier
     export Ridge2MultitaskClassifier
