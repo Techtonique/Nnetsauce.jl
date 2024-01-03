@@ -14,12 +14,12 @@ module Nnetsauce
     
     Ridge2Classifier = PyCall.py"""
     import nnetsauce as ns
-    ns.Ridge2Classifier
+    ns.Ridge2Classifier()
     """
 
     Ridge2MultitaskClassifier = PyCall.py"""
     import nnetsauce as ns
-    ns.Ridge2MultitaskClassifier
+    ns.Ridge2MultitaskClassifier()
     """
 
     export Ridge2Classifier
