@@ -11,23 +11,25 @@ module Nnetsauce
     Conda.pip("install", "nnetsauce")  # Install nnetsauce        
 
     function Ridge2Classifier(kwargs...)        
-        PyCall.py"""
-        import nnetsauce as ns
-        """
         return PyCall.py"""        
-        ns.Ridge2Classifier($kwargs)
+        import nnetsauce as ns
+        ns.Ridge2Classifier(n_hidden_features=$n_hidden_features,
+        activation_name=$activation_name,
+        a=$a,
+        nodes_sim=$nodes_sim,
+        #bias=True,
+        dropout=$dropout,
+        n_clusters=$n_clusters,
+        #cluster_encode=True,
+        type_clust=$type_clust,
+        #type_scaling=("std", "std", "std"),
+        lambda1=$lambda1,
+        lambda2=$lambda2,
+        seed=$seed,
+        backend=$backend)
         """       
     end
         
-    function Ridge2MultitaskClassifier(kwargs...)        
-        PyCall.py"""
-        import nnetsauce as ns
-        """
-        return PyCall.py"""        
-        ns.Ridge2MultitaskClassifier($kwargs)
-        """
-    end
-
-    export Ridge2Classifier, Ridge2MultitaskClassifier    
+    export Ridge2Classifier
 
 end
