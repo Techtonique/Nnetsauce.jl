@@ -27,7 +27,7 @@ module Nnetsauce
                 activation_name=activation_name,
                 a=a,
                 nodes_sim=nodes_sim,
-                bias=bias,
+                #bias=bias,
                 dropout=dropout,
                 #direct_link=direct_link,
                 n_clusters=n_clusters,
