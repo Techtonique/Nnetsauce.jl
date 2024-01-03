@@ -1,27 +1,21 @@
 module Nnetsauce
 
-using Pkg
+    import Pkg
 
-Pkg.add("PyCall")
-Pkg.add("Conda")
+    Pkg.add("PyCall")
 
-using PyCall
-using Conda
+    import PyCall
 
-ENV["PYTHON"] = PyCall.pyprogramname()
-Conda.add("pip")
-Conda.pip_interop(true)  # Enable pip interop
-Conda.pip("install", "nnetsauce")  # Install nnetsauce
+    ENV["PYTHON"] = PyCall.pyprogramname()
+    ns = PyCall.pyimport("nnetsauce")
 
-ns = PyCall.pyimport("nnetsauce")
+        function Ridge2Classifier(kwargs...)
+            return ns.Ridge2Classifier(kwargs)
+        end
 
-    function Ridge2Classifier(kwargs...)
-        return ns.Ridge2Classifier(kwargs)
-    end
-
-    function Ridge2MultitaskClassifier(kwargs...)
-        return ns.Ridge2MultitaskClassifier(kwargs)
-    end
+        function Ridge2MultitaskClassifier(kwargs...)
+            return ns.Ridge2MultitaskClassifier(kwargs)
+        end
 
     export Ridge2Classifier, Ridge2MultitaskClassifier
 
