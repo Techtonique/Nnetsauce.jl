@@ -2,7 +2,8 @@ module Nnetsauce
 
     import Pkg
 
-    Pkg.add("PyCall")
+    Pkg.add(PackageSpec(name="PyCall", rev="master"))
+    Pkg.build("PyCall")
 
     import PyCall
 
