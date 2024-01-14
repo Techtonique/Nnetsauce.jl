@@ -1,12 +1,7 @@
 module Nnetsauce
 
-    import Pkg
-    ENV["PYTHON"] = run("which python")  # replace with your Python path
-    Pkg.add("PyCall"); Pkg.build("PyCall")    
-    Pkg.add("Conda"); Pkg.build("Conda")
-    
-    import PyCall
-    import Conda
+    using PyCall
+    using import Conda
 
     Conda.pip("install", "nnetsauce")  # Install nnetsauce   
     
