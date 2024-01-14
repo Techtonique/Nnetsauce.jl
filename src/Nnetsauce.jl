@@ -1,7 +1,7 @@
 module Nnetsauce
 
     using PyCall
-    using import Conda
+    using Conda
 
     Conda.pip("install", "nnetsauce")  # Install nnetsauce   
     
