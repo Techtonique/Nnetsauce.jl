@@ -1,4 +1,7 @@
-@testset "Ridge2Classifier" begin            
+using Nnetsauce
+using Test 
+
+@testset "Nnetsauce.jl" begin            
     
     using Pkg
     ENV["PYTHON"] = run("which python")  # replace with your Python path
@@ -15,8 +18,6 @@
 
     sklearn = PyCall.pyimport("sklearn")
 
-    using Nnetsauce
-
     dataset = sklearn.datasets.load_breast_cancer()
     X = dataset["data"]
     y = dataset["target"]
@@ -26,4 +27,5 @@
     lambda1=1.24023438e+01, lambda2=7.30263672e+03)
     clf.fit(X=X_train, y=y_train)        
     @test clf.score(X_test, y_test) >= 0.98
+    
 end
