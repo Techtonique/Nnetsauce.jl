@@ -1,10 +1,10 @@
 module Nnetsauce
 
     using PyCall
-    using Conda
+    #using Conda
 
-    Conda.pip_interop(true)  # Enable pip interop
-    Conda.pip("install", "nnetsauce")  # Install nnetsauce   
+    #Conda.pip_interop(true)  # Enable pip interop
+    #Conda.pip("install", "nnetsauce")  # Install nnetsauce   
     
     ns = PyCall.pyimport("nnetsauce")
 
