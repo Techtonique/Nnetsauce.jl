@@ -1,12 +1,26 @@
 module Nnetsauce
 
-    using PyCall
-    #using Conda
-
-    #Conda.pip_interop(true)  # Enable pip interop
-    #Conda.pip("install", "nnetsauce")  # Install nnetsauce   
+    using Pkg
+    #ENV["PYTHON"] = ""  # replace with your Python path
+    Pkg.add("PyCall")
+    Pkg.build("PyCall")
+    Pkg.add("Conda")
+    Pkg.build("Conda")
     
-    ns = PyCall.pyimport("nnetsauce")
+    using PyCall
+    using Conda
+    
+    Conda.add("pip")  # Ensure pip is installed
+    Conda.pip_interop(true)  # Enable pip interop
+    Conda.pip("install", "scikit-learn")  # Install scikit-learn
+    Conda.pip("install", "jax")  # /!\ Only on Linux or macOS: Install jax
+    Conda.pip("install", "jaxlib")  # /!\ Only on Linux or macOS: Install jaxlib
+    Conda.pip("install", "nnetsauce")  # Install nnetsauce
+    Conda.add("numpy")
+    
+    np = pyimport("numpy")
+    ns = pyimport("nnetsauce")
+    sklearn = pyimport("sklearn")
 
     function Ridge2Classifier(;n_hidden_features=5,
         activation_name="relu",
