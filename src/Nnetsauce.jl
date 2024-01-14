@@ -1,7 +1,7 @@
 module Nnetsauce
 
     using Pkg
-    #ENV["PYTHON"] = ""  # replace with your Python path
+    ENV["PYTHON"] = readchomp(`which python3`);
     Pkg.add("PyCall")
     Pkg.build("PyCall")
     Pkg.add("Conda")
