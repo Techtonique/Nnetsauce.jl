@@ -11,7 +11,7 @@ module Nnetsauce
     using Conda
     
     Conda.add("pip")  # Ensure pip is installed
-    Conda.pip_interop(true)  # Enable pip interop
+    #Conda.pip_interop(true)  # Enable pip interop
     Conda.pip("install", "scikit-learn")  # Install scikit-learn
     Conda.pip("install", "jax")  # /!\ Only on Linux or macOS: Install jax
     Conda.pip("install", "jaxlib")  # /!\ Only on Linux or macOS: Install jaxlib
