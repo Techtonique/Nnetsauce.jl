@@ -1,15 +1,18 @@
 @testset "Ridge2Classifier" begin            
     
+    using Pkg
+    ENV["PYTHON"] = run("which python")  # replace with your Python path
+    Pkg.add("PyCall"); Pkg.build("PyCall")    
+    Pkg.add("Conda"); Pkg.build("Conda")
+
     using Conda
 
-    Conda.add("pip")  # Ensure pip is installed
-    Conda.pip_interop(true)  # Enable pip interop
+    #Conda.add("pip")  # Ensure pip is installed
+    #Conda.pip_interop(true)  # Enable pip interop
     Conda.pip("install", "scikit-learn")  # Install scikit-learn
-    Conda.add("numpy")
 
     using PyCall
 
-    np = PyCall.pyimport("numpy")
     sklearn = PyCall.pyimport("sklearn")
 
     using Nnetsauce

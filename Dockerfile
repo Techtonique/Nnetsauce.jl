@@ -20,9 +20,12 @@ RUN /usr/local/julia/bin/julia --project=/app -e 'using Pkg; Pkg.add(["Conda", "
 # Copy all files from the current directory to /app in the container
 COPY . .
 
-# Run Julia commands during the image build process
-# Set the project to /app and instantiate dependencies
-RUN /usr/local/julia/bin/julia --project=/app -e 'using Pkg; Pkg.resolve(); Pkg.instantiate(); Pkg.build()'
+# Run Julia commands during the image build process with logging
+RUN echo "Running Pkg.instantiate()..." && \
+    /usr/local/julia/bin/julia --project=/app -e 'using Pkg; Pkg.resolve(); Pkg.instantiate()' && \
+    echo "Running Pkg.build()..." && \
+    /usr/local/julia/bin/julia --project=/app -e 'using Pkg; Pkg.build()'
+
 
 # Specify the default command to run when the container starts
 CMD ["/usr/local/julia/bin/julia", "--project=/app", "-e", "using Pkg; Pkg.test()"]

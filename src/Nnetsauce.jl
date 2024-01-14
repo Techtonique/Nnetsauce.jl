@@ -1,9 +1,9 @@
 module Nnetsauce
 
     import Pkg
-
-    Pkg.add("PyCall")
-    Pkg.add("Conda")
+    ENV["PYTHON"] = run("which python")  # replace with your Python path
+    Pkg.add("PyCall"); Pkg.build("PyCall")    
+    Pkg.add("Conda"); Pkg.build("Conda")
     
     import PyCall
     import Conda
