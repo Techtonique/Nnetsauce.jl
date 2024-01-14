@@ -1,12 +1,5 @@
 @testset "Ridge2Classifier" begin            
-    import Pkg
-    Pkg.add("Pkg")
-
-    using Pkg
-
-    Pkg.add("Conda")
-
-    using Test
+    
     using Conda
 
     Conda.add("pip")  # Ensure pip is installed
