@@ -1,8 +1,12 @@
+using CondaPkg
 using Nnetsauce
 using PythonCall
 using Test 
 
 @testset "Nnetsauce.jl" begin            
+    CondaPkg.add_pip("pip")  # Ensure pip is installed
+    CondaPkg.add_pip("install", "scikit-learn")  # Install scikit-learn
+
     sklearn = PythonCall.pyimport("sklearn")
 
     dataset = sklearn.datasets.load_breast_cancer()

@@ -15,7 +15,7 @@ RUN tar zxvf julia-1.10.0-linux-x86_64.tar.gz
 RUN mv julia-1.10.0 /usr/local/julia
 
 # Set up environment variables for Julia and run Julia commands
-RUN /usr/local/julia/bin/julia --project=/app -e 'using Pkg; Pkg.add(["Conda", "PythonCall"])'
+RUN /usr/local/julia/bin/julia --project=/app -e 'using Pkg; Pkg.add(["CondaPkg", "PythonCall"])'
 
 # Copy all files from the current directory to /app in the container
 COPY . .
