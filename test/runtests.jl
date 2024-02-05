@@ -1,6 +1,10 @@
 using CondaPkg
 using Nnetsauce
 using PythonCall
+using Pkg 
+
+Pkg.add("Test")  # Install Test
+
 using Test 
 
 @testset "Nnetsauce.jl" begin                
