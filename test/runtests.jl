@@ -1,22 +1,9 @@
 using Nnetsauce
+using PythonCall
 using Test 
 
 @testset "Nnetsauce.jl" begin            
-    
-    using Pkg
-    ENV["PYTHON"] = run("which python")  # replace with your Python path
-    Pkg.add("PyCall"); Pkg.build("PyCall")    
-    Pkg.add("Conda"); Pkg.build("Conda")
-
-    using Conda
-
-    #Conda.add("pip")  # Ensure pip is installed
-    #Conda.pip_interop(true)  # Enable pip interop
-    Conda.pip("install", "scikit-learn")  # Install scikit-learn
-
-    using PyCall
-
-    sklearn = PyCall.pyimport("sklearn")
+    sklearn = PythonCall.pyimport("sklearn")
 
     dataset = sklearn.datasets.load_breast_cancer()
     X = dataset["data"]

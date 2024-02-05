@@ -2,25 +2,27 @@ module Nnetsauce
 
     using Pkg
     ENV["PYTHON"] = readchomp(`which python3`);
-    Pkg.add("PyCall")
-    Pkg.build("PyCall")
+    Pkg.add("PythonCall")
+    Pkg.build("PythonCall")
     Pkg.add("Conda")
     Pkg.build("Conda")
     
-    using PyCall
+    using PythonCall
     using Conda
     
-    #Conda.add("pip")  # Ensure pip is installed
-    #Conda.pip_interop(true)  # Enable pip interop
+    Conda.add("pip")  # Ensure pip is installed
+    Conda.pip_interop(true)  # Enable pip interop
     Conda.pip("install", "scikit-learn")  # Install scikit-learn
-    #Conda.pip("install", "jax")  # /!\ Only on Linux or macOS: Install jax
-    #Conda.pip("install", "jaxlib")  # /!\ Only on Linux or macOS: Install jaxlib
+    if Sys.isunix()  # Install jax and jaxlib only on Linux or macOS
+        Conda.pip("install", "jax")  # Install jax
+        Conda.pip("install", "jaxlib")  # Install jaxlib
+    end
     Conda.pip("install", "nnetsauce")  # Install nnetsauce
-    #Conda.add("numpy")
     
-    #np = pyimport("numpy")
-    ns = pyimport("nnetsauce")
-    #sklearn = pyimport("sklearn")
+    ns = PythonCall.pyimport("nnetsauce")
+    sklearn = PythonCall.pyimport("sklearn")
+
+    export Ridge2Classifier
 
     function Ridge2Classifier(;n_hidden_features=5,
         activation_name="relu",
@@ -52,8 +54,6 @@ module Nnetsauce
             lambda2=lambda2,
             seed=seed,
             backend=backend)
-    end
-        
-    export Ridge2Classifier
+    end        
 
 end
