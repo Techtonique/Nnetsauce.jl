@@ -9,13 +9,13 @@ using Test
 @testset "Nnetsauce.jl" begin    
 
     try 
-        ENV["PYTHON"] = readchomp(`which python3`);
+        ENV["PYTHON"] = readchomp(`which python`);
     catch
         nothing
     end
 
     using Nnetsauce
-    
+    using Random
     # sklearn = PythonCall.pyimport("sklearn")
 
     # dataset = sklearn.datasets.load_breast_cancer()
