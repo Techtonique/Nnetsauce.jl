@@ -4,6 +4,7 @@ module Nnetsauce
     
     ENV["PYTHON"] = ""
 
+    using Conda
     using PyCall
     
     run(`pip install -U scikit-learn`)  # Install scikit-learn
@@ -11,7 +12,16 @@ module Nnetsauce
         run(`pip install -U jax`)  # /!\ Only on Linux or macOS: Install jax
         run(`pip install -U jaxlib`)  # /!\ Only on Linux or macOS: Install jaxlib
     end
-    run(`pip install -U nnetsauce`)  # Install nnetsauce
+    run(`pip install -U nnetsauce`)  # Install nnetsauce    
+    
+    Conda.add("pip")  # Ensure pip is installed
+    Conda.pip_interop(true)  # Enable pip interop
+    Conda.pip("install", "scikit-learn")  # Install scikit-learn
+    if Sys.isunix()  # Install jax and jaxlib only on Linux or macOS
+        Conda.pip("install", "jax")  # /!\ Only on Linux or macOS: Install jax
+        Conda.pip("install", "jaxlib")  # /!\ Only on Linux or macOS: Install jaxlib
+    end 
+    Conda.pip("install", "nnetsauce")  # Install nnetsauce
 
     ns = PyCall.pyimport("nnetsauce")
     sklearn = PyCall.pyimport("sklearn")
