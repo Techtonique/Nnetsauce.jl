@@ -1,18 +1,18 @@
 name = "Nnetsauce"
 uuid = "efe80079-2d8f-4399-9724-693920340b4d"
 authors = ["thierrymoudiki <thierry.moudiki@gmail.com>"]
-version = "0.1.0"
+version = "0.16.8"
 
 [compat]
 julia = "1.10"
 Pkg = "1.6.7"
 PythonCall = "0.9.15" 
-CondaPkg = "0.2.22"
+Conda = "1.10.0"
 
 [deps]
 Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 PythonCall = "6099a3de-0909-46bc-b1f4-468b9a2dfc0d"
-CondaPkg = "992eb4ea-22a4-4c89-a5bb-47a3300528ab"
+Conda = "8f4d0f93-b110-5947-807f-2305c1781a2d"
 
 [preferences.NetCDF_jll]
 libnetcdf_path = "/Users/gong/miniforge3/lib/libnetcdf.19.dylib"

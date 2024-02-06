@@ -9,3 +9,9 @@
 ```bash
 docker build -t ahead .&&docker run ahead 
 ```
+
+**local dev**
+
+```julia
+using Pkg; Pkg.activate("./")
+```

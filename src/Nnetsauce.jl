@@ -1,22 +1,29 @@
 module Nnetsauce
 
     using Pkg
-    ENV["PYTHON"] = readchomp(`which python3`);
+    try 
+        ENV["PYTHON"] = readchomp(`which python3`);
+    catch
+        nothing
+    end
     Pkg.add("PythonCall")
     Pkg.build("PythonCall")
-    Pkg.add("CondaPkg")
-    Pkg.build("CondaPkg")
+    Pkg.add("Conda")
+    Pkg.build("Conda")
     
     using PythonCall
-    using CondaPkg
+    using Conda
     
-    CondaPkg.add_pip("scikit-learn")  # Install scikit-learn
+    Conda.add("pip")  # Ensure pip is installed
+    Conda.pip_interop(true)  # Enable pip interop
+    Conda.pip("install", "scikit-learn")  # Install scikit-learn
     if Sys.isunix()  # Install jax and jaxlib only on Linux or macOS
-        CondaPkg.add_pip("jax")  # Install jax
-        CondaPkg.add_pip("jaxlib")  # Install jaxlib
-    end
-    CondaPkg.add_pip("nnetsauce")  # Install nnetsauce
+        Conda.pip("install", "jax")  # /!\ Only on Linux or macOS: Install jax
+        Conda.pip("install", "jaxlib")  # /!\ Only on Linux or macOS: Install jaxlib
+    end 
+    Conda.pip("install", "nnetsauce")  # Install nnetsauce
     
+    np = PythonCall.pyimport("numpy")
     ns = PythonCall.pyimport("nnetsauce")
     sklearn = PythonCall.pyimport("sklearn")
 
