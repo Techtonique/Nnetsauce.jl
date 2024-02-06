@@ -1,6 +1,5 @@
-using Conda
-using PythonCall
 using Pkg 
+using PyCall
 
 Pkg.add("Test")  # Install Test
 
@@ -8,11 +7,6 @@ using Test
 
 @testset "Nnetsauce.jl" begin    
 
-    try 
-        ENV["PYTHON"] = readchomp(`which python`);
-    catch
-        nothing
-    end
 
     using Nnetsauce
     using Random

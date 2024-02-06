@@ -1,17 +1,12 @@
 module Nnetsauce
 
-    using Pkg
-    try 
-        ENV["PYTHON"] = readchomp(`which python`);
-    catch
-        nothing
-    end
+    using Pkg    
+    
+    ENV["PYTHON"] = ""
 
-    #Pkg.add("Conda")
-    #Pkg.add("PyCall")
+    Pkg.add("PyCall")
 
     using PyCall
-    using Conda
     
     run(`pip install -U scikit-learn`)  # Install scikit-learn
     if Sys.isunix()  # Install jax and jaxlib only on Linux or macOS
