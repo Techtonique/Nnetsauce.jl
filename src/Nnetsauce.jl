@@ -29,7 +29,7 @@ module Nnetsauce
         activation_name="relu",
         a=0.01,
         nodes_sim="sobol",
-        bias=True,
+        bias=true,
         dropout=0,
         direct_link=true,
         n_clusters=2,
