@@ -28,7 +28,7 @@ module Nnetsauce
 
     export Ridge2Classifier
 
-    function Ridge2Classifier(;n_hidden_features=5,
+    function Ridge2Classifier(n_hidden_features;
         activation_name="relu",
         a=0.01,
         nodes_sim="sobol",
@@ -38,7 +38,7 @@ module Nnetsauce
         n_clusters=2,
         cluster_encode=true,
         type_clust="kmeans",
-        #type_scaling=("std", "std", "std"),
+        type_scaling=("std", "std", "std"),
         lambda1=0.1,
         lambda2=0.1,
         seed=123,
@@ -53,7 +53,7 @@ module Nnetsauce
             n_clusters=n_clusters,
             cluster_encode=cluster_encode,
             type_clust=type_clust,
-            #type_scaling=type_scaling,
+            type_scaling=type_scaling,
             lambda1=lambda1,
             lambda2=lambda2,
             seed=seed,
