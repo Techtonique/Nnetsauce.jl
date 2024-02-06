@@ -7,5 +7,5 @@
 # Note to self or developers 
 
 ```bash
-docker build -t ahead .&&docker run ahead 
+docker build -t nnetsauce .&&docker run nnetsauce
 ```
