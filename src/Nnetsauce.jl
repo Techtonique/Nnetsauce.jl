@@ -4,8 +4,6 @@ module Nnetsauce
     
     ENV["PYTHON"] = ""
 
-    Pkg.add("PyCall")
-
     using PyCall
     
     run(`pip install -U scikit-learn`)  # Install scikit-learn
