@@ -11,6 +11,7 @@ module Nnetsauce
     
     Conda.add("pip")  # Ensure pip is installed
     Conda.pip_interop(true)  # Enable pip interop
+    Conda.pip("install", "numpy")  # Install scikit-learn
     Conda.pip("install", "scikit-learn")  # Install scikit-learn
     if Sys.isunix()  # Install jax and jaxlib only on Linux or macOS
         Conda.pip("install", "jax")  # /!\ Only on Linux or macOS: Install jax
