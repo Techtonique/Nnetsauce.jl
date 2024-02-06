@@ -6,7 +6,7 @@ module Nnetsauce
     catch
         nothing
     end
-    using PythonCall
+    using PyCall
     using Conda
     
     Conda.add("pip")  # Ensure pip is installed
@@ -18,8 +18,8 @@ module Nnetsauce
     end 
     Conda.pip("install", "nnetsauce")  # Install nnetsauce
     
-    ns = PythonCall.pyimport("nnetsauce")
-    sklearn = PythonCall.pyimport("sklearn")
+    ns = PyCall.pyimport("nnetsauce")
+    sklearn = PyCall.pyimport("sklearn")
 
     export Ridge2Classifier
 
