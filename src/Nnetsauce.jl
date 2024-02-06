@@ -6,11 +6,6 @@ module Nnetsauce
     catch
         nothing
     end
-    Pkg.add("PythonCall")
-    Pkg.build("PythonCall")
-    Pkg.add("Conda")
-    Pkg.build("Conda")
-    
     using PythonCall
     using Conda
     
