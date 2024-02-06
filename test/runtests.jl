@@ -21,8 +21,6 @@ using Test
     # clf.fit(X=X_train, y=y_train)        
     # @test clf.score(X_test, y_test) >= 0.98
 
-    using Random
-
     function generate_classification_dataset(num_samples::Int)
         # Set seed for reproducibility
         Random.seed!(42)
