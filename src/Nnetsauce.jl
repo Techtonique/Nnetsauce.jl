@@ -4,6 +4,9 @@ module Nnetsauce
     
     ENV["PYTHON"] = ""
 
+    Pkg.add("PyCall")  # Install PyCall
+    Pkg.add("Conda")  # Install Conda
+
     using Conda
     using PyCall
     
