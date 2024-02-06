@@ -21,11 +21,8 @@ jobs:
       matrix:
         version:
           - '1.10'
-<<<<<<< HEAD
           #- '1.6'
           #- 'nightly'
-=======
->>>>>>> d094378c3a8ec6d60d6c819cbb24f423c3c24cff
         os:
           - ubuntu-latest
           - macos-latest
