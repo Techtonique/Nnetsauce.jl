@@ -7,8 +7,8 @@ module Nnetsauce
         nothing
     end
 
-    Pkg.add("Conda")
-    Pkg.add("PyCall")
+    #Pkg.add("Conda")
+    #Pkg.add("PyCall")
 
     using PyCall
     using Conda
